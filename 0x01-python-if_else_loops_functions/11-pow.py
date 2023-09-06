@@ -8,4 +8,4 @@ def pow(a, b):
         else:
             product /= a
             b = b + 1
-    return product
+    return round(product, 16)
