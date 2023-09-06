@@ -4,4 +4,4 @@ for letter in range(ord('z'), ord('a') - 1, -1):
         num = 0
     else:
         num = 32
-    print(chr(letter - num), end="")
+    print("{}".format(chr(letter - num)), end="")
