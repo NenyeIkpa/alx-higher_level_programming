@@ -4,7 +4,7 @@ def multiple_returns(sentence):
     idx = 0
 
     if (senlen == 0):
-        sentence[0] = ""
+        sentence[0] = None
     else:
         for char in sentence:
             idx += 1
