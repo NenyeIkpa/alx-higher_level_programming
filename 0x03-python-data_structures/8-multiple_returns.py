@@ -1,11 +1,7 @@
 #!/usr/bin/python3
 def multiple_returns(sentence):
     senlen = len(sentence)
-    idx = 0
 
-    if (senlen == 0):
+    if (sentence == ""):
         sentence[0] = None
-    else:
-        for char in sentence:
-            idx += 1
-    return (idx, sentence[0])
+    return (senlen, sentence[0])
