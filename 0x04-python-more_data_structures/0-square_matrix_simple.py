@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
+    # if matrix is empty return empty list
+    if not matrix:
+        return []
     # Get the number of rows and columns in the matrix
     num_of_rows = len(matrix)
     num_of_columns = len(matrix[0])
