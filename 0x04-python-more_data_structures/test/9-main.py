@@ -8,3 +8,32 @@ new_dict = multiply_by_2(a_dictionary)
 print_sorted_dictionary(a_dictionary)
 print("--")
 print_sorted_dictionary(new_dict)
+print("xxxxxxxxxxx")
+
+a_dictionary = { 'John': 12, 'Alex': 8, 'Bob': 14, 'Mike': 14, 'Molly': 16 }
+new_dict = multiply_by_2(a_dictionary)
+print_sorted_dictionary(a_dictionary)
+print("--")
+print_sorted_dictionary(new_dict)
+print("xxxxxxxxxxx")
+
+a_dictionary = { 'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5 }
+new_dict = multiply_by_2(a_dictionary)
+print_sorted_dictionary(a_dictionary)
+print("--")
+print_sorted_dictionary(new_dict)
+print("xxxxxxxxxxx")
+
+a_dictionary = { 'John': 12 }
+new_dict = multiply_by_2(a_dictionary)
+print_sorted_dictionary(a_dictionary)
+print("--")
+print_sorted_dictionary(new_dict)
+print("xxxxxxxxxxx")
+
+a_dictionary = { }
+new_dict = multiply_by_2(a_dictionary)
+print_sorted_dictionary(a_dictionary)
+print("--")
+print_sorted_dictionary(new_dict)
+print("xxxxxxxxxxx")
