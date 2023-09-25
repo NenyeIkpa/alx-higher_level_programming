@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+import sys
+
 
 def safe_function(fct, *args):
     try:
         return fct(args)
     except (Exception):
-        Exception("Unknown format code 'd' for object of type 'str'")
-        return 0
+        raise Exception
+        return None
