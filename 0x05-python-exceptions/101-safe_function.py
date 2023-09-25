@@ -2,8 +2,7 @@
 
 def safe_function(fct, *args):
     try:
-        print("{:d}".format(fct(int(args))))
-        return True
+        return fct(args)
     except (Exception):
         Exception("Unknown format code 'd' for object of type 'str'")
-        return False
+        return 0
