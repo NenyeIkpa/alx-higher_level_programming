@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 def list_division(my_list_1, my_list_2, list_length):
-    new_list = [0] * list_length
+    new_list = []
 
     for a in range(list_length):
         result = 0
@@ -14,5 +14,5 @@ def list_division(my_list_1, my_list_2, list_length):
         except IndexError:
             print("index out of range")
         finally:
-            new_list[a] = result
+            new_list.append(result)
     return new_list
