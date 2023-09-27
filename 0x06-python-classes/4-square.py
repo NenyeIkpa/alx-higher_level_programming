@@ -7,12 +7,22 @@ class Square:
 
     def __init__(self, size=0):
         """initialization function"""
-        if isinstance(size, int) is False:
+        self.__size = size
+
+    @property
+    def size(self):
+        """ get method for private attribute __size"""
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        """set method for __size attribute"""
+        if isinstance(value, int) is False:
             raise TypeError("size must be an integer")
-        elif size < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
         else:
-            self.__size = size
+            self.__size = value
 
     def area(self):
         """ calculates the area of a given square"""

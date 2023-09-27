@@ -5,8 +5,6 @@
 class Square:
     """attributes include a private field; size and an init method"""
 
-    __size = None
-
     def __init__(self, size=0):
         """initialization function"""
         if isinstance(size, int) is False:
