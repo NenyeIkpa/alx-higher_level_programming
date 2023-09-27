@@ -21,7 +21,15 @@ my_square_4.my_print()
 
 print("--")
 
-my_square_5 = Square(3, "Position")
+my_square_5 = Square(3, (1, ))
 my_square_5.my_print()
 
 print("--")
+
+my_square_6 = Square(3, (1, -3))
+my_square_6.my_print()
+
+print("--")
+
+my_square_7 = Square(3, "Position")
+my_square_7.my_print()
