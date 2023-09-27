@@ -6,7 +6,15 @@ class Square:
     """attributes include a private field; size and an init method"""
 
     def __init__(self, size=0, position=(0, 0)):
-        """initialization function"""
+        """initialization functioni"""
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        if (not isinstance(position[0], int) or not
+                isinstance(position[1], int) or
+                position[0] < 0 or position[1] < 0):
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__size = size
         self.__position = position
 
@@ -33,10 +41,11 @@ class Square:
     @position.setter
     def position(self, value):
         """set method for __position attribute"""
-        if type(value) is not int or value[0] < 0 or value[1] < 0:
+        if (not isinstance(value[0], int) or not
+                isinstance(value[1], int) or value[0] < 0 or value[1] < 0):
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
-            self__position = position
+            self__position = value
 
     def area(self):
         """ calculates the area of a given square"""
