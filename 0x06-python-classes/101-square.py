@@ -70,13 +70,13 @@ class Square:
         """ i ain't sure what is going on here"""
         result = ""
         if self.__size == 0:
-            result = "\n"
-        else:
-            for q in range(self.__position[1]):
+            return result
+
+        for q in range(self.__position[1]):
+            result += "\n"
+        for i in range(self.__size):
+            result += " " * self.__position[0]
+            result += "#" * self.__size
+            if i < self.__size - 1:
                 result += "\n"
-            for i in range(self.__size):
-                result += " " * self.__position[0]
-                result += "#" * self.__size
-                if i < self.__size - 1:
-                    result += "\n"
         return result
