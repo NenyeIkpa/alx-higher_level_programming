@@ -1,0 +1,31 @@
+text_indentation module
+=========================
+
+import function:
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation("This is a boy")
+This is a boy
+>>> text_indentation("This is a boy:")
+This is a boy
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("   This is ?")
+This is
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("This is a boy.")
+This is a boy
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("This is a boy,")
+This is a boy
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation(100)
+Traceback (most recent call last):
+TypeError: text must be a string
