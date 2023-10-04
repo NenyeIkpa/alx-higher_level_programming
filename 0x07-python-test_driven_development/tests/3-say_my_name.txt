@@ -34,5 +34,5 @@ TypeError: last_name must be a string
 Traceback (most recent call last):
 TypeError: first_name must be a string
 
->>> say_my_name(None, None)
-My name is
+>>> say_my_name("", "")
+My name is  
