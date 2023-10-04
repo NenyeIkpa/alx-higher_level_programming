@@ -8,7 +8,7 @@
 def matrix_divided(matrix, div):
     """divides all elements in matrix by div"""
     if type(matrix) is None or not isinstance(matrix, list) or len(matrix) == 0:
-        raise (TypeError("matrix must be a matrix(list of lists) of integers/floats"))
+        raise TypeError("matrix must be a matrix(list of lists) of integers/floats")
     sub_len = []
     for i in range(len(matrix)):
         if not isinstance(matrix[i], list) or len(matrix[i]) is 0:
