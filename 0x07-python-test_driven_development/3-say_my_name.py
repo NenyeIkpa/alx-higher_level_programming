@@ -3,7 +3,7 @@
 """ Say my name """
 
 
-def say_my_name(first_name, last_name=""):
+def say_my_name(first_name="", last_name=""):
     """confirm parameters are strings and print name"""
     if not isinstance(first_name, str) or type(first_name) is None:
         raise TypeError("first_name must be a string")
