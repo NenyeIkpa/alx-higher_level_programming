@@ -10,7 +10,7 @@ def text_indentation(text):
     skip = 0
 
     for char in text:
-        if char == "." or char == "," or char == "?" or char == ":":
+        if char == "." or char == "?" or char == ":":
             print(char, end="\n\n")
             skip = 1
         elif (char == " " or char == "\t") and skip == 1:

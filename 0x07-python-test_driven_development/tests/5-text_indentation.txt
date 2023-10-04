@@ -7,23 +7,15 @@ import function:
 >>> text_indentation("This is a boy")
 This is a boy
 >>> text_indentation("This is a boy:")
-This is a boy
-<BLANKLINE>
+This is a boy:
 <BLANKLINE>
 
 >>> text_indentation("   This is ?")
-This is
-<BLANKLINE>
+This is ?
 <BLANKLINE>
 
 >>> text_indentation("This is a boy.")
-This is a boy
-<BLANKLINE>
-<BLANKLINE>
-
->>> text_indentation("This is a boy,")
-This is a boy
-<BLANKLINE>
+This is a boy.
 <BLANKLINE>
 
 >>> text_indentation(100)
