@@ -4,6 +4,7 @@ import numpy as np
 
 def lazy_matrix_mul(m_a, m_b):
     """ lazy matrix multiplication"""
+    """
     try:
         result = np.dot(m_a, m_b)
         return result
@@ -13,6 +14,4 @@ def lazy_matrix_mul(m_a, m_b):
                    .format(m_a.shape, m_b.shape, m_a.shape[1],
                            m_b.shape[0]))
     """
-    or
     return (np.matmul(m_a, m_b))
-    """
