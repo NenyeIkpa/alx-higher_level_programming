@@ -31,6 +31,8 @@ def matrix_mul(m_a, m_b):
         for _ in i:
             if type(_) not in [int, float]:
                 raise TypeError("m_a should contain only integers or floats")
+            if _ == float("nan") or _ == float("inf"):
+                raise TypeError("m_a should contain only integers or floats")
 
     b_row_sizes = []
 
@@ -43,7 +45,7 @@ def matrix_mul(m_a, m_b):
         if not all(val == b_row_sizes[0] for val in b_row_sizes):
             raise TypeError("each row of m_b must be of the same size")
         for _ in j:
-            if type(_) not in [int, float]:
+            if type(_) not in [int, float] or int(_) != _:
                 raise TypeError("m_b should contain only integers or floats")
     m_c = []
     len_a_sub = len(m_a[0])

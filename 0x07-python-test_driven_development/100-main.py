@@ -3,4 +3,5 @@ matrix_mul = __import__('100-matrix_mul').matrix_mul
 
 print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
 print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+print(matrix_mul([[1.2, 2.5]], [[3.42, 4.3], [5.85, float("NaN")]]))
 print(matrix_mul([[1, 2, 3], [3, 4, 5]], [[1, 2], [3, 4]]))
