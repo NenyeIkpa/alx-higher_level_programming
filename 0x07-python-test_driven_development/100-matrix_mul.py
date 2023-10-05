@@ -46,15 +46,23 @@ def matrix_mul(m_a, m_b):
             if type(_) not in [int, float]:
                 raise TypeError("m_b should contain only integers or floats")
     m_c = []
-    for i in m_a:
-        for j in range(len(i)):
-            temp = []
+    len_a_sub = len(m_a[0])
+    len_b = len(m_b)
+    for i in range(len(m_a)):
+        temp = []
+        a = 0
+        while a < len(m_b[0]):
             sumtotal = 0
-            for k in m_b:
+            j = 0
+            k = 0
+            while j < len_a_sub and k < len_b:
                 try:
-                    sumtotal = i[j] * k[j][0]
+                    sumtotal += m_a[i][j] * m_b[k][a]
+                    j += 1
+                    k += 1
                 except ValueError:
                     raise ValueError("m_a and m_b can't be multiplied")
             temp.append(sumtotal)
+            a += 1
         m_c.append(temp)
     return m_c
