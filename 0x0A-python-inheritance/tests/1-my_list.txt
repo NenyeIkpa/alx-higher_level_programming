@@ -22,3 +22,5 @@ True
 
 >>> print(mylist)
 [5, 14, 87, 12, 3, 17]
+
+>>> mylist.append("Holberton")
