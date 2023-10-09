@@ -1,0 +1,24 @@
+1-my_list.txt module
+=====================
+
+get function:
+>>> MyList = __import__('1-my_list').MyList
+
+>>> mylist = MyList()
+
+>>> isinstance(mylist, list)
+True
+
+>>> issubclass(MyList, list)
+True
+
+>>> mylist.extend([5, 14, 87, 12, 3, 17])
+
+>>> print(mylist)
+[5, 14, 87, 12, 3, 17]
+
+>>> mylist.print_sorted()
+[3, 5, 12, 14, 17, 87]
+
+>>> print(mylist)
+[5, 14, 87, 12, 3, 17]
