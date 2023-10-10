@@ -1,0 +1,35 @@
+7-base_geometry Module
+========================
+
+get function:
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> b = BaseGeometry()
+
+>>> b.integer_validator("b", 5)
+
+>>> b.integer_validator("b", 0)
+Traceback (most recent call last):
+ValueError: b must be greater than 0
+
+>>> b.integer_validator("b", -5)
+Traceback (most recent call last):
+ValueError: b must be greater than 0
+
+>>> b.integer_validator("b", "0")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> b.integer_validator("b", "twelve")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> b.integer_validator("b",)
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+>>> b.integer_validator()
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
