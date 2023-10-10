@@ -7,5 +7,7 @@
 
 def append_write(filename="", text=""):
     """ append a string to the existing contents of a text file """
+    appended = 0
     with open(filename, "a", encoding="utf-8") as f:
-        f.write(text)
+        appended = f.write(text)
+    return appended
