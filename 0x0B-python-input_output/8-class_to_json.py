@@ -16,7 +16,7 @@ def class_to_json(obj):
     serialized = {}
     attributes = dir(obj)
     for attribute in attributes:
-        if not attribute.startswith('_'):
+        if not attribute.startswith('__'):
             value = getattr(obj, attribute)
             """
                 check if value is of a serializable type
