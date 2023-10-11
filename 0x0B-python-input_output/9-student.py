@@ -17,8 +17,11 @@ class Student:
 
     def to_json(self):
         """ returns a dict of serialized JSON student """
+        """
         serialized_student = {}
         serialized_student["first_name"] = self.first_name
         serialized_student["last_name"] = self.last_name
         serialized_student["age"] = self.age
         return serialized_student
+        """
+        return self.__dict__
