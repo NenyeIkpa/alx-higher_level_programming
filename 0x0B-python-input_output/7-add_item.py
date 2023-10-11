@@ -23,8 +23,6 @@ else:
     mylist = []
 
 """ when command line args are available, append them to the python list """
-if len(sys.argv) > 1:
-    for i in range(1, len(sys.argv)):
-        mylist.append(sys.argv[i])
+for arg in sys.argv[1:]:
+    mylist.append(arg)
 save_to(mylist, filename)
-load_from(filename)
