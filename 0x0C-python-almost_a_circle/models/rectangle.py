@@ -112,3 +112,36 @@ class Rectangle(Base):
         """ returns a string formatted output of a rectangle """
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
                 self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args):
+        """
+            updates class attribute using
+            no-keyword argument
+        """
+        if args:
+            if len(args) >= 1:
+                self.id = args[0]
+                if len(args) >= 2:
+                    if type(args[1]) is not int:
+                        raise TypeError("width must be an integer")
+                    if args[1] <= 0:
+                        raise ValueError("width must be >= 0")
+                    self.__width = args[1]
+                if len(args) >= 3:
+                    if type(args[2]) is not int:
+                        raise TypeError("height must be an integer")
+                    if args[2] <= 0:
+                        raise ValueError("height must be > 0")
+                    self.__height = args[2]
+                if len(args) >= 4:
+                    if type(args[3]) is not int:
+                        raise TypeError("x must be an integer")
+                    if args[3] < 0:
+                        raise ValueError("x must be > 0")
+                    self.__x = args[3]
+                if len(args) >= 5:
+                    if type(args[4]) is not int:
+                        raise TypeError("y must be an integer")
+                    if args[4] < 0:
+                        raise ValueError("y must be > 0")
+                    self.__y = args[4]
