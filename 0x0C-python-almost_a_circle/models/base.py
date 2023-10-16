@@ -3,6 +3,7 @@
 """
     Base class module
 """
+import json
 
 
 class Base:
@@ -17,3 +18,21 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = self.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """ converts list of dictionaries to a json string """
+        if not list_dictionaries:
+            return []
+        else:
+            json.dump(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """ save the contents in list_objs to file """
+        if not list_objs:
+            return []
+        filename = cls.__name__ + ".json"
+        with open(filename, "w") as f:
+            js = cls.to_json_string(list_objs)
+            file.write(js)
