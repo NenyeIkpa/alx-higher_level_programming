@@ -9,6 +9,7 @@ import unittest
 
 from models.base import Base
 
+
 class TestBase(unittest.TestCase):
     """
         holds all the test cases for the Base class
@@ -20,9 +21,8 @@ class TestBase(unittest.TestCase):
         b1 = Base()
         self.assertEqual(b1.id, 1)
 
-        b2 = Base (10)
+        b2 = Base(10)
         self.assertEqual(b2.id, 10)
-
 
         b3 = Base()
         self.assertEqual(b3.id, 2)

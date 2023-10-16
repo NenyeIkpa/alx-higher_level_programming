@@ -9,7 +9,7 @@ from models.rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):
-    """ 
+    """
         tests cases for the properties and methods
         of the rectangle class
     """
@@ -39,4 +39,3 @@ class TestRectangle(unittest.TestCase):
         """ negative values passed to x and y """
         with self.assertRaises(ValueError):
             Rectangle(2, 3, -3, -2)
-
