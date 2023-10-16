@@ -175,6 +175,6 @@ class Rectangle(Base):
                         raise ValueError("y must be >= 0")
                     self.__y = value
 
-            def to_dictionary(self):
-                """ returns a dict representation of object """
-                return self.__dict__
+    def to_dictionary(self):
+        """ returns a dict representation of object """
+        return self.__dict__
