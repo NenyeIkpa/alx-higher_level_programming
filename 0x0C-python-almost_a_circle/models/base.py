@@ -34,5 +34,5 @@ class Base:
             return []
         filename = cls.__name__ + ".json"
         with open(filename, "w") as f:
-            js = cls.to_json_string(list_objs)
-            file.write(js)
+            js = cls.to_json_string([obj.to_dictionary() for obj in list_objs)
+            f.write(js)
