@@ -48,7 +48,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r4.x, 7)
         self.assertEqual(r4.y, 8)
         self.assertEqual(r4.area(), 30)
+        
 
+        r5 = Rectangle(1,2,3,4, -5)
+        self.assertEqual(r5.id, -5)
 
     def test_init_no_args(self):
         """ no args passed to class instantiation """
@@ -71,3 +74,11 @@ class TestRectangle(unittest.TestCase):
         """ negative value passed to y """
         with self.assertRaises(ValueError):
             Rectangle(2, 3, 3, -2)
+
+    def test_init_zero_values(self):
+        """ zero passed as argument """
+        with self.assertRaises(ValueError):
+            Rectangle(0, 3)
+
+        with self.assertRaises(ValueError):
+            Rectangle(7, 0)
