@@ -48,7 +48,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r4.x, 7)
         self.assertEqual(r4.y, 8)
         self.assertEqual(r4.area(), 30)
-        
 
         r5 = Rectangle(3, 2, id=-5)
         self.assertEqual(r5.id, -5)
@@ -86,3 +85,19 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             Rectangle(7, 0)
+    
+    def test_init_non_integer_values(self):
+        """
+            pass non integer values as arguments
+        """
+        with self.assertRaises(TypeError):
+            Rectangle("3", 7)
+        
+        with self.assertRaises(TypeError):
+            Rectangle(3, "7")
+
+        with self.assertRaises(TypeError):
+            Rectangle(3, 7, "v", 2)
+        
+        with self.assertRaises(TypeError):
+            Rectangle(3, 7, 2, "8")
