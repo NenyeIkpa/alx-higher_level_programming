@@ -27,22 +27,25 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.area(), 50)
 
     def test_init_width_varied_args(self):
-        """ initializes instances of a Rectangle with variable number of arguments"""
-        r2 = Rectangle(2,7)
+        """
+            initializes instances of a Rectangle class
+            with variable number of arguments
+        """
+        r2 = Rectangle(2, 7)
         self.assertEqual(r2.width, 2)
         self.assertEqual(r2.height, 7)
         self.assertEqual(r2.x, 0)
         self.assertEqual(r2.y, 0)
         self.assertEqual(r2.area(), 14)
 
-        r3 = Rectangle(5,6,7)
+        r3 = Rectangle(5, 6, 7)
         self.assertEqual(r3.width, 5)
         self.assertEqual(r3.height, 6)
         self.assertEqual(r3.x, 7)
         self.assertEqual(r3.y, 0)
         self.assertEqual(r3.area(), 30)
 
-        r4 = Rectangle(5,6,7, 8)
+        r4 = Rectangle(5, 6, 7, 8)
         self.assertEqual(r4.width, 5)
         self.assertEqual(r4.height, 6)
         self.assertEqual(r4.x, 7)
@@ -54,7 +57,8 @@ class TestRectangle(unittest.TestCase):
 
         r6 = Rectangle(4, 6, 2, 1, 33)
         self.assertEqual(r6.__str__(), "[Rectangle] (33) 2/1 - 4/6")
-        self.assertEqual(r6.to_dictionary(), {"id": 33, "width": 4, "height": 6, "x": 2, "y": 1})
+        self.assertEqual(r6.to_dictionary(),
+                         {"id": 33, "width": 4, "height": 6, "x": 2, "y": 1})
 
     def test_init_no_args(self):
         """ no args passed to class instantiation """
@@ -85,19 +89,19 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             Rectangle(7, 0)
-    
+
     def test_init_non_integer_values(self):
         """
             pass non integer values as arguments
         """
         with self.assertRaises(TypeError):
             Rectangle("3", 7)
-        
+
         with self.assertRaises(TypeError):
             Rectangle(3, "7")
 
         with self.assertRaises(TypeError):
             Rectangle(3, 7, "v", 2)
-        
+
         with self.assertRaises(TypeError):
             Rectangle(3, 7, 2, "8")
