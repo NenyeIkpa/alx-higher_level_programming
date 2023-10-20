@@ -48,4 +48,16 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ returns an instance with all attributes already set """
-        return cls(**dictionary)
+        # Create a dummy instance with a mandatory attribute (id)
+        dummy_instance = cls(1, 1, 1, 1)
+
+        if cls.__name__ == "Rectangle":
+            if "width" in dictionary:
+                dummy_instance.update(width=dictionary["width"])
+            if "height" in dictionary:
+                dummy_instance.update(height=dictionary["height"])
+        elif cls.__name__ == "Square":
+            if "size" in dictionary:
+                dummy_instance.update(size=dictionary["size"])
+
+        return dummy_instance
