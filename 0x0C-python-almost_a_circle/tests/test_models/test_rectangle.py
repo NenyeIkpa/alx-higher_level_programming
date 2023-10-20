@@ -25,6 +25,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.y, 4)
         self.assertEqual(r1.id, 12)
         self.assertEqual(r1.area(), 50)
+        self.assertIsInstance(r1, Rectangle)
 
     def test_init_width_varied_args(self):
         """
@@ -54,8 +55,11 @@ class TestRectangle(unittest.TestCase):
 
         r5 = Rectangle(3, 2, id=-5)
         self.assertEqual(r5.id, -5)
+        self.assertEqual(r5.area(), 6)
 
         r6 = Rectangle(4, 6, 2, 1, 33)
+        self.assertEqual(r6.area(), 24)
+        self.assertIsInstance(r6, Rectangle)
         self.assertEqual(r6.__str__(), "[Rectangle] (33) 2/1 - 4/6")
         self.assertEqual(r6.to_dictionary(),
                          {"id": 33, "width": 4, "height": 6, "x": 2, "y": 1})

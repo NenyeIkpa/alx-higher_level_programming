@@ -29,9 +29,11 @@ class TestBase(unittest.TestCase):
 
         b4 = Base(-5)
         self.assertEqual(b4.id, -5)
+        self.assertIsInstance(b4, Base)
 
         b5 = Base(100)
         self.assertEqual(b5.id, 100)
+        self.assertIsInstance(b5, Base)
 
     if __name__ == "__main__":
         unittest.main()
