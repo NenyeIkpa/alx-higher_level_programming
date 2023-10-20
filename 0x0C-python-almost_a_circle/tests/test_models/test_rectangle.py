@@ -106,6 +106,15 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle(3, 7, 2, "8")
 
+    def test_too_many_args(self):
+        """
+            too many arguments passed:
+            TypeError: __init__() takes from 3 to 6 positional arguments
+            but 7 were given
+        """
+        with self.assertRaises(TypeError):
+            Rectangle(3, 4, 5, 6, 7, 8, 9)
+
     @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
     def assert_stdout(self, width, height, x, y, expected_output, mock_output):
         r = Rectangle(width, height, x, y)

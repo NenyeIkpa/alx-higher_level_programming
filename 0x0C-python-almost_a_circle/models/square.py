@@ -49,44 +49,44 @@ class Square(Rectangle):
                     raise TypeError("width must be an integer")
                 if args[1] <= 0:
                     raise ValueError("width must be > 0")
-                self.__width = args[1]
-                self.__height = args[1]
+                self.width = args[1]
+                self.height = args[1]
             if len(args) >= 3:
                 if type(args[2]) is not int:
                     raise TypeError("x must be an integer")
                 if args[2] < 0:
                     raise ValueError("x must be >= 0")
-                self.__x = args[2]
+                self.x = args[2]
             if len(args) >= 4:
                 if type(args[3]) is not int:
                     raise TypeError("y must be an integer")
                 if args[3] < 0:
                     raise ValueError("y must be >= 0")
-                self.__y = args[3]
+                self.y = args[3]
         else:
-            arg_list = ["id", "width", "x", "y"]
+            arg_list = ["id", "size", "x", "y"]
             for key, value in kwargs.items():
                 if key == arg_list[0]:
-                    self.__id = value
+                    self.id = value
                 if key == arg_list[1]:
                     if type(value) is not int:
                         raise TypeError("width must be an integer")
                     if value <= 0:
                         raise ValueError("width must be > 0")
-                    self.__width = value
-                    self.__height = value
+                    self.width = value
+                    self.height = value
                 if key == arg_list[2]:
                     if type(value) is not int:
                         raise TypeError("x must be an integer")
                     if value < 0:
                         raise ValueError("x must be >= 0")
-                    self.__x = value
+                    self.x = value
                 if key == arg_list[3]:
                     if type(value) is not int:
                         raise TypeError("y must be an integer")
                     if value < 0:
                         raise ValueError("y must be >= 0")
-                    self.__y = value
+                    self.y = value
 
         def to_dictionary(self):
             """ returns dict representation of a square """
