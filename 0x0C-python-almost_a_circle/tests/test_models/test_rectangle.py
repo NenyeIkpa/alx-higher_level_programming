@@ -58,13 +58,7 @@ class TestRectangle(unittest.TestCase):
         r5 = Rectangle(3, 2, id=-5)
         self.assertEqual(r5.id, -5)
         self.assertEqual(r5.area(), 6)
-
-        r6 = Rectangle(4, 6, 2, 1, 33)
-        self.assertEqual(r6.area(), 24)
-        self.assertIsInstance(r6, Rectangle)
-        self.assertEqual(r6.__str__(), "[Rectangle] (33) 2/1 - 4/6")
-        self.assertEqual(r6.to_dictionary(),
-                         {"id": 33, "width": 4, "height": 6, "x": 2, "y": 1})
+        self.assertIsInstance(r5, Rectangle)
 
     def test_init_no_args(self):
         """ no args passed to class instantiation """
@@ -126,3 +120,38 @@ class TestRectangle(unittest.TestCase):
         self.assert_stdout(3, 6, 0, 0, "###\n###\n###\n###\n###\n###\n")
         self.assert_stdout(4, 4, 2, 3,
                            "\n\n\n  ####\n  ####\n  ####\n  ####\n")
+
+
+class TestRectangle2(unittest.TestCase):
+    """
+        testing using the setUp and tearDown methods
+    """
+
+    def setUp(self):
+        """
+            sets up requirements for execution of
+            following test cases
+        """
+        self.r6 = Rectangle(4, 6, 2, 1, 33)
+
+    def test_area(self):
+        """ test case for rectangle area """
+        self.assertEqual(self.r6.area(), 24)
+
+    def test__str__(self):
+        """
+            test case for __str__ method
+        """
+        self.assertEqual(self.r6.__str__(), "[Rectangle] (33) 2/1 - 4/6")
+
+    def test_to_dictionary(self):
+        """
+            test case for to_dictionary method
+        """
+        self.assertEqual(self.r6.to_dictionary(),
+                         {"id": 33, "width": 4, "height": 6, "x": 2, "y": 1})
+
+    def test_update(self):
+        """ test for the update method """
+        self.r6.update(89, 2, 3, 4, 5)
+        self.assertEqual(self.r6.__str__(), "[Rectangle] (89) 4/5 - 2/3")
