@@ -4,7 +4,9 @@
     unit tests for Rectangle class
 """
 
+import io
 import unittest
+import unittest.mock
 from models.rectangle import Rectangle
 
 
@@ -109,3 +111,18 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             Rectangle(3, 7, 2, "8")
+
+    @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
+    def assert_stdout(self, width, height, x, y, expected_output, mock_output):
+        r = Rectangle(width, height, x, y)
+        r.display()
+        self.assertEqual(mock_output.getvalue(), expected_output)
+
+    def test_display(self):
+        """
+            test cases for the display method
+        """
+        self.assert_stdout(7, 2, 0, 0,  "#######\n#######\n")
+        self.assert_stdout(3, 6, 0, 0, "###\n###\n###\n###\n###\n###\n")
+        self.assert_stdout(4, 4, 2, 3,
+                           "\n\n\n  ####\n  ####\n  ####\n  ####\n")
