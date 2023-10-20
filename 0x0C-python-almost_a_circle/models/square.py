@@ -88,10 +88,10 @@ class Square(Rectangle):
                         raise ValueError("y must be >= 0")
                     self.y = value
 
-        def to_dictionary(self):
-            """ returns dict representation of a square """
-            return {"id": self.id,
-                    "size": self.width,
-                    "x": self.x,
-                    "y": self.y
-                    }
+    def to_dictionary(self):
+        """ returns dict representation of a square """
+        return {"id": self.id,
+                "size": self.width,
+                "x": self.x,
+                "y": self.y
+                }
