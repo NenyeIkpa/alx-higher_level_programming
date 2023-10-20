@@ -13,5 +13,5 @@ if __name__ == "__main__":
     r3 = Rectangle(10, 2, 0, 0, 12)
     print(r3.id)
 
-    r5 = Rectangle(1, 2, 3, 4, 5, 6)
-    print(r5.id)
+    r4 = Rectangle(1, 2, 3, 4, 5, 6, 7)
+    print(r4.id)

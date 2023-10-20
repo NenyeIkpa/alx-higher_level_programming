@@ -139,6 +139,45 @@ class TestSquare2(unittest.TestCase):
         """ test case for square area """
         self.assertEqual(self.s6.area(), 16)
 
+    def test_set_size(self):
+        """ tests set method for width """
+        self.s6.size = 13
+        self.assertEqual(self.s6.width, 13)
+        self.assertEqual(self.s6.height, 13)
+
+        """ test width non integers """
+        with self.assertRaises(TypeError):
+            self.s6.size = "4"
+
+        """ test with negative values """
+        with self.assertRaises(ValueError):
+            self.s6.size = -5
+
+        """ test with zero """
+        with self.assertRaises(ValueError):
+            self.s6.size = 0
+
+    def test_set_x_and_y(self):
+        """ tests set method for width """
+        self.s6.x = 9
+        self.s6.y = 10
+        self.assertEqual(self.s6.x, 9)
+        self.assertEqual(self.s6.y, 10)
+
+        """ test width non integers """
+        with self.assertRaises(TypeError):
+            self.s6.x = "4"
+
+        with self.assertRaises(TypeError):
+            self.s6.y = "m"
+
+        """ test with negative integers """
+        with self.assertRaises(ValueError):
+            self.s6.x = -4
+
+        with self.assertRaises(ValueError):
+            self.s6.y = -2
+
     def test__str__(self):
         """
             test case for __str__ method

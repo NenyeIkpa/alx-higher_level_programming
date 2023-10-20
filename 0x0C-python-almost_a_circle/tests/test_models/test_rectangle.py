@@ -149,6 +149,55 @@ class TestRectangle2(unittest.TestCase):
         """ test case for rectangle area """
         self.assertEqual(self.r6.area(), 24)
 
+    def test_set_width_and_height(self):
+        """ tests set method for width """
+        self.r6.width = 17
+        self.r6.height = 13
+        self.assertEqual(self.r6.width, 17)
+        self.assertEqual(self.r6.height, 13)
+
+        """ test width non integers """
+        with self.assertRaises(TypeError):
+            self.r6.width = "4"
+
+        with self.assertRaises(TypeError):
+            self.r6.height = "z"
+
+        """ test with negative values """
+        with self.assertRaises(ValueError):
+            self.r6.width = -5
+
+        with self.assertRaises(ValueError):
+            self.r6.height = -1
+
+        """ test with zero """
+        with self.assertRaises(ValueError):
+            self.r6.width = 0
+
+        with self.assertRaises(ValueError):
+            self.r6.height = 0
+
+    def test_set_x_and_y(self):
+        """ tests set method for width """
+        self.r6.x = 9
+        self.r6.y = 10
+        self.assertEqual(self.r6.x, 9)
+        self.assertEqual(self.r6.y, 10)
+
+        """ test width non integers """
+        with self.assertRaises(TypeError):
+            self.r6.x = "4"
+
+        with self.assertRaises(TypeError):
+            self.r6.y = "z"
+
+        """ test with negative values """
+        with self.assertRaises(ValueError):
+            self.r6.x = -5
+
+        with self.assertRaises(ValueError):
+            self.r6.y = -1
+
     def test__str__(self):
         """
             test case for __str__ method
