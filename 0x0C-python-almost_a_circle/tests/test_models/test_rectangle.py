@@ -155,3 +155,6 @@ class TestRectangle2(unittest.TestCase):
         """ test for the update method """
         self.r6.update(89, 2, 3, 4, 5)
         self.assertEqual(self.r6.__str__(), "[Rectangle] (89) 4/5 - 2/3")
+
+        self.r6.update(x=1, height=2, y=3, width=4)
+        self.assertEqual(self.r6.__str__(), "[Rectangle] (89) 1/3 - 4/2")
