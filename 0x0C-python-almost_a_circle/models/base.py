@@ -49,7 +49,7 @@ class Base:
     def create(cls, **dictionary):
         """ returns an instance with all attributes already set """
         # Create a dummy instance with a mandatory attribute (id)
-        dummy_instance = cls(1, 1, 1, 1)
+        dummy_instance = cls(1, 1, 0, 0)
 
         if cls.__name__ == "Rectangle":
             if "width" in dictionary:
