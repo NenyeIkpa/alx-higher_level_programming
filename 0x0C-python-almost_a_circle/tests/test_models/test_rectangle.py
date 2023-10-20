@@ -8,6 +8,7 @@ import io
 import unittest
 import unittest.mock
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestRectangle(unittest.TestCase):
@@ -142,6 +143,7 @@ class TestRectangle2(unittest.TestCase):
             following test cases
         """
         self.r6 = Rectangle(4, 6, 2, 1, 33)
+        self.r7 = Rectangle(10, 7, 2, 8, 40)
 
     def test_area(self):
         """ test case for rectangle area """
@@ -167,3 +169,19 @@ class TestRectangle2(unittest.TestCase):
 
         self.r6.update(x=1, height=2, y=3, width=4)
         self.assertEqual(self.r6.__str__(), "[Rectangle] (89) 1/3 - 4/2")
+
+    def test_to_json_string(self):
+        """ test case for conversion of dict object to json string """
+        dictionary = self.r6.to_dictionary()
+        self.assertEqual(Base.to_json_string([dictionary]),
+                         '[{"id": 33, "width": 4, "height": 6, '
+                         '"x": 2, "y": 1}]')
+
+    def test_save_to_file(self):
+        """ test case - writes json string representation to file """
+        Rectangle.save_to_file([self.r6, self.r7])
+        with open("Rectangle.json", "r") as files:
+            self.assertEqual(files.read(),
+                             '[{"id": 33, "width": 4, "height": 6, "x": 2, '
+                             '"y": 1}, {"id": 40, "width": 10, '
+                             '"height": 7, "x": 2, "y": 8}]')

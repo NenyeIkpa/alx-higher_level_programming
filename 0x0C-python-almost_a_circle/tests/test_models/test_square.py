@@ -8,6 +8,7 @@ import io
 import unittest
 import unittest.mock
 from models.square import Square
+from models.base import Base
 
 
 class TestSquare(unittest.TestCase):
@@ -132,6 +133,7 @@ class TestSquare2(unittest.TestCase):
             following test cases
         """
         self.s6 = Square(4, 2, 1, 35)
+        self.s7 = Square(10, 5, 8, 40)
 
     def test_area(self):
         """ test case for square area """
@@ -148,7 +150,7 @@ class TestSquare2(unittest.TestCase):
             test case for to_dictionary method
         """
         self.assertEqual(self.s6.to_dictionary(),
-                         {"id": 35, "width": 4, "height": 4, "x": 2, "y": 1})
+                         {"id": 35, "size": 4, "x": 2, "y": 1})
 
     def test_update(self):
         """ test for the update method """
@@ -157,3 +159,18 @@ class TestSquare2(unittest.TestCase):
 
         self.s6.update(x=1, y=2, size=14)
         self.assertEqual(self.s6.__str__(), "[Square] (100) 1/2 - 14")
+
+    def test_to_json_string(self):
+        """ test case for conversion of dict object to json string """
+        dictionary = self.s6.to_dictionary()
+        self.assertEqual(Base.to_json_string([dictionary]),
+                         '[{"id": 35, "size": 4, '
+                         '"x": 2, "y": 1}]')
+
+    def test_save_to_file(self):
+        """ test case - writes json string representation to file """
+        Square.save_to_file([self.s6, self.s7])
+        with open("Square.json", "r") as files:
+            self.assertEqual(files.read(),
+                             '[{"id": 35, "size": 4, "x": 2, "y": 1}, '
+                             '{"id": 40, "size": 10, "x": 5, "y": 8}]')
