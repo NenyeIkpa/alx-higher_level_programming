@@ -149,7 +149,7 @@ class Rectangle(Base):
             arg_list = ["id", "width", "height", "x", "y"]
             for key, value in kwargs.items():
                 if key == arg_list[0]:
-                    self.__id = value
+                    self.id = value
                 if key == arg_list[1]:
                     if type(value) is not int:
                         raise TypeError("width must be an integer")

@@ -4,6 +4,7 @@
     Base class module
 """
 import json
+import csv
 
 
 class Base:
@@ -61,3 +62,27 @@ class Base:
                 dummy_instance.update(size=dictionary["size"])
 
         return dummy_instance
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ saves to csv file """
+        if not list_objs:
+            return []
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as csv_file:
+            fieldnames = list_objs[0].keys
+            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+            writer.writeheader()
+            for row in list_objs:
+                writer.writerow(row)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ loads data from csv file """
+        data = []
+        filename = cls.__name__ + ".csv"
+        with open(filename, mode="r") as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            for row in csv_reader:
+                data.append(row)
+        print(data)
