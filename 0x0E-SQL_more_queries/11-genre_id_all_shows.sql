@@ -3,4 +3,4 @@
 SELECT ts.title, tsg.genre_id
 FROM tv_shows AS ts
 LEFT JOIN tv_show_genres as tsg ON ts.id = tsg.show_id
-ORDER BY ts.title ASC, tsg.genre_id ASC;
+ORDER BY ts.title, tsg.genre_id;
