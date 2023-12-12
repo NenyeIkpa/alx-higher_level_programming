@@ -1,2 +1,3 @@
 #!/usr/bin/node
-if (isNaN(parseInt(process.argv[2]))) console.log('Not a number'); else console.log('My number: ', process.argv[2]);
+const num = Math.floor(Number(process.argv[2]));
+if (isNaN(num)) console.log('Not a number'); else console.log('My number: ', process.argv[2]);
