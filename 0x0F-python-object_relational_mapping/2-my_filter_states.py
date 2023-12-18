@@ -27,6 +27,6 @@ def list_states(user, password, db, state):
 if __name__ == "__main__":
     user = sys.argv[1]
     password = sys.argv[2]
-    db = sys.argv[3],
+    db = sys.argv[3]
     state = sys.argv[4]
     list_states(user, password, db, state)
