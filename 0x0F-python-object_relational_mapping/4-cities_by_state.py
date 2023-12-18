@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
-""" SQLInjection  module """
+""" Lists all cities from given db """
 
 import sys
 import MySQLdb
 
 
-def list_states(user, password, db, state):
+def list_states(user, password, db):
     """list all states using MySQLdb """
     db = MySQLdb.connect(
             host='localhost',
@@ -15,11 +15,11 @@ def list_states(user, password, db, state):
             passwd=password,
             db=db)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE \
-            name=%s ORDER BY id ASC", (state,))
-    states = cur.fetchall()
-    for state in states:
-        print(state)
+    cur.execute("""SELECT cities.id, cities.name, states.name FROM cities
+    JOIN states ON state_id=states.id ORDER BY cities.id""")
+    cities = cur.fetchall()
+    for city in cities:
+        print(city)
     cur.close()
     db.close()
 
@@ -28,5 +28,4 @@ if __name__ == "__main__":
     user = sys.argv[1]
     password = sys.argv[2]
     db = sys.argv[3]
-    state = sys.argv[4]
-    list_states(user, password, db, state)
+    list_states(user, password, db)
