@@ -15,7 +15,8 @@ def list_states(user, password, db):
             passwd=password,
             db=db)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name REGEXP '^N' ORDER BY id ASC")
+    cur.execute("SELECT * FROM states WHERE REGEXP_LIKE(name, '^N', 'c') \
+            ORDER BY id ASC")
     states = cur.fetchall()
     for state in states:
         print(state)
