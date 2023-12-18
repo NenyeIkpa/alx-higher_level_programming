@@ -15,7 +15,7 @@ def list_states(user, password, db, state_name_to_search):
             passwd=password,
             db=db)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE '{}' \
+    cur.execute("SELECT * FROM states WHERE name LIKE '{:s}' \
             ORDER BY id ASC".format(state_name_to_search))
     states = cur.fetchall()
     for state in states:
