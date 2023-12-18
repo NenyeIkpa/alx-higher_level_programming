@@ -22,7 +22,7 @@ def list_states(username, password, db):
     # step two - create a session
     Session = sessionmaker(bind=engine)
     session = Session()
-    all_states = session.query(states).filter().order_by(states.id).all()
+    all_states = session.query(states).filter(states.name.like('N%')).order_by(states.id).all()
     for state in all_states:
         print("({},'{}')".format(state.id, state.name))
 
