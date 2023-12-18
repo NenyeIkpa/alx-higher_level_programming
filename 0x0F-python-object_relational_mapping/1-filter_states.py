@@ -18,7 +18,7 @@ def list_states(user, password, db):
     cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
     states = cur.fetchall()
     for state in states:
-        if state[0] is 'N':
+        if state[0] == 'N':
             print(state)
     cur.close()
     db.close()
