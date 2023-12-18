@@ -15,7 +15,8 @@ def list_states(user, password, db, state_name_to_search):
             passwd=password,
             db=db)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states")
+    cur.execute("SELECT * FROM states WHERE name LIKE '{:s}' ORDER BY \
+    id ASC".format(state_name_to_search))
     states = cur.fetchall()
     for state in states:
         if state is state_name_to_search:
@@ -25,5 +26,8 @@ def list_states(user, password, db, state_name_to_search):
 
 
 if __name__ == "__main__":
-    user, password, db, state_name_searched =  sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
-    list_states(user, password, db, state_name_searched)
+    user = sys.argv[1]
+    password = sys.argv[2]
+    db = sys.argv[3],
+    state_to_search = sys.argv[4]
+    list_states(user, password, db, state_to_search)

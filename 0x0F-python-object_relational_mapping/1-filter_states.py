@@ -18,7 +18,7 @@ def list_states(user, password, db):
     cur.execute("SELECT * FROM states")
     states = cur.fetchall()
     for state in states:
-        if state[0][1] is 'N':
+        if state[1][0] is 'N':
             print(state)
     cur.close()
     db.close()
