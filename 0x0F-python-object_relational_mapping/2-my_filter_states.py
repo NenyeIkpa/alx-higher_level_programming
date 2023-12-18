@@ -6,7 +6,7 @@ import sys
 import MySQLdb
 
 
-def list_states(user, password, db):
+def list_states(user, password, db, state_name_to_search):
     """list all states using MySQLdb """
     db = MySQLdb.connect(
             host='localhost',
@@ -18,12 +18,12 @@ def list_states(user, password, db):
     cur.execute("SELECT * FROM states")
     states = cur.fetchall()
     for state in states:
-        if state[0][1] is 'N':
+        if state is state_name_to_search:
             print(state)
     cur.close()
     db.close()
 
 
 if __name__ == "__main__":
-    user, password, db = sys.argv[1], sys.argv[2], sys.argv[3]
-    list_states(user, password, db)
+    user, password, db, state_name_searched =  sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+    list_states(user, password, db, state_name_searched)
