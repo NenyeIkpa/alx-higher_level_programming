@@ -8,6 +8,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
+
 def list_states(username, password, db):
     """ lists all states """
     # Connecting to a database using sqlalchemy:
@@ -16,7 +17,8 @@ def list_states(username, password, db):
     # provides info about the data source has the general format:
     # dialect+driver://username:password@host:port/database
     # Connecting to MySQL server at localhost using mysql-python DBAPI
-    connection_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(username, password, db)
+    connection_url = "mysql+mysqldb://{}:\
+            {}@localhost:3306/{}".format(username, password, db)
     engine = create_engine(connection_url)
 
     # step two - create a session
@@ -26,6 +28,7 @@ def list_states(username, password, db):
     for state in all_states:
         print("{}: {}".format(state.id, state.name))
 
+
 if __name__ == "__main__":
     username, password, db = sys.argv[1], sys.argv[2], sys.argv[3]
-    list_states(username, password, db);
+    list_states(username, password, db)

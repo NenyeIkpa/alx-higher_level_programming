@@ -10,18 +10,18 @@ from model_state import Base, State
 
 
 def list_states(username, password, db):
-    """ print first state """
-    connection_url = "mysql+mysqldb://{}:{}\
-            @localhost:3306/{}".format(username, password, db)
+    """ lists all states """
+    connection_url = "mysql+mysqldb://{}:\
+            {}@localhost:3306/{}".format(username, password, db)
     engine = create_engine(connection_url)
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    state = session.query(State).order_by(State.id).first()
-    if state:
-        print("{}: {}".format(state.id, state.name))
-    else:
-        print('Nothing')
+
+    new_state = State(name='Louisiana')
+    session.add(new_state)
+    session.commit()
+    print(new_state.id)
 
 
 if __name__ == "__main__":
