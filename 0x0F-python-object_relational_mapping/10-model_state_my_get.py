@@ -16,12 +16,12 @@ def list_states(username, password, db, state):
     # step two - create a session
     Session = sessionmaker(bind=engine)
     session = Session()
-    all_states = session.query(State).order_by(State.id).all()
-    for state in all_states:
-        if  state.name == state:
-            print(state.id)
-            return
-    print("Not found")
+    try:
+        state_sought = session.query(State).\
+            filter(State.name == state).order_by(State.id).one()
+        print("{}".format(state_sought.id))
+    except:
+        print("Not found")
 
 if __name__ == "__main__":
     username, password, db = sys.argv[1], sys.argv[2], sys.argv[3]
