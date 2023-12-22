@@ -15,11 +15,8 @@ def list_states(user, password, db, state_name):
             passwd=password,
             db=db)
     cur = db.cursor()
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id"
-    cur.execute(query, (state_name,))
-    states = cur.fetchall()
-    for state in states:
-        print(state)
+    cur.execute("SELECT * FROM states ORDER BY id")
+    [print(state) for state in cur.fetchall() if state[1] == state_name]
     cur.close()
     db.close()
 
@@ -29,4 +26,4 @@ if __name__ == "__main__":
     password = sys.argv[2]
     db = sys.argv[3]
     state_name = '{}'.format(sys.argv[4])
-    list_states(user, password, db, state)
+    list_states(user, password, db, state_name)
