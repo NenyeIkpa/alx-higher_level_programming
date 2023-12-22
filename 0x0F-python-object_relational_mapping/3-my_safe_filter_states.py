@@ -28,5 +28,5 @@ if __name__ == "__main__":
     user = sys.argv[1]
     password = sys.argv[2]
     db = sys.argv[3]
-    state = sys.argv[4]
+    state = '{}'.format(sys.argv[4])
     list_states(user, password, db, state)
