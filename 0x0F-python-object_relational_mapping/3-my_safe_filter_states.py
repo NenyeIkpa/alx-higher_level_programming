@@ -6,7 +6,7 @@ import sys
 import MySQLdb
 
 
-def list_states(user, password, db, state):
+def list_states(user, password, db, state_name):
     """list all states using MySQLdb """
     db = MySQLdb.connect(
             host='localhost',
@@ -15,8 +15,8 @@ def list_states(user, password, db, state):
             passwd=password,
             db=db)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE \
-            name=%s ORDER BY id ASC", (state,))
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id"
+    cur.execute(query, (state_name,))
     states = cur.fetchall()
     for state in states:
         print(state)
@@ -28,5 +28,5 @@ if __name__ == "__main__":
     user = sys.argv[1]
     password = sys.argv[2]
     db = sys.argv[3]
-    state = '{}'.format(sys.argv[4])
+    state_name = '{}'.format(sys.argv[4])
     list_states(user, password, db, state)
