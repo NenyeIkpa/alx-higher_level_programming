@@ -6,7 +6,7 @@ import sys
 import MySQLdb
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
+from model_state import Base, State
 
 def list_states(username, password, db):
     """ lists all states """
@@ -22,7 +22,7 @@ def list_states(username, password, db):
     # step two - create a session
     Session = sessionmaker(bind=engine)
     session = Session()
-    all_states = session.query(states).order_by(states.id).all()
+    all_states = session.query(State).order_by(State.id).all()
     for state in all_states:
         print("({},'{}')".format(state.id, state.name))
 
