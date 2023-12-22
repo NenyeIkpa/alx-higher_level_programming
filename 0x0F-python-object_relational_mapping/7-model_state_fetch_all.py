@@ -24,7 +24,7 @@ def list_states(username, password, db):
     session = Session()
     all_states = session.query(State).order_by(State.id).all()
     for state in all_states:
-        print("({},'{}')".format(state.id, state.name))
+        print("{}: {}".format(state.id, state.name))
 
 if __name__ == "__main__":
     username, password, db = sys.argv[1], sys.argv[2], sys.argv[3]
