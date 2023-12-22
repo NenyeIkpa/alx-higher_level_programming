@@ -8,7 +8,7 @@ Base = declarative_base()
 
 
 class City(Base):
-    """ State class """
+    """ City class """
     __tablename__ = "cities"
     id = Column(
             Integer,

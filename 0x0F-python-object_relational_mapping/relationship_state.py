@@ -1,15 +1,16 @@
 #!/usr/bin/python3
-""" City Class with SQLAlchemy """
+""" State Class with SQLAlchemy """
 
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
+from relationship_city import City
 
 Base = declarative_base()
 
-
-class City(Base):
+class State(Base):
     """ State class """
-    __tablename__ = "cities"
+    __tablename__ = "states"
     id = Column(
             Integer,
             primary_key=True,
@@ -18,4 +19,4 @@ class City(Base):
             nullable=False
             )
     name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey("states.id"), nullable=False)
+    cities = relationship('City', backref='state', cascade='delete')
