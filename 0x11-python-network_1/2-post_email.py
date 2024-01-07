@@ -17,6 +17,6 @@ if __name__ == "__main__":
         with urllib.request.urlopen(url, data=post_data) as response:
             body = response.read()
             to_str = body.decode('utf-8')
-            print('your email is: {}'.format(to_str))
+            print(to_str)
     except Exception as e:
         pass
