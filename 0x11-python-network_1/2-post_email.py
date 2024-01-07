@@ -11,11 +11,11 @@ from sys import argv
 
 url = argv[1]
 email = argv[2]
-post_data = urllib.parse.urlencode({'email': email}).encode(utf-8)
+post_data = urllib.parse.urlencode({'email': email}).encode('utf-8')
 
 try:
     with urllib.request.urlopen(url, data=post_data) as response:
-        response.read()
-        print('your email is: {}'.format(email))
+        to_str = response.read().decode('utf-8')
+        print('your email is: {}'.format(to_str))
 except Exception as e:
     pass
