@@ -9,13 +9,15 @@ import urllib.parse
 from sys import argv
 
 
-url = argv[1]
-email = argv[2]
-post_data = urllib.parse.urlencode({'email': email}).encode('utf-8')
-
-try:
-    with urllib.request.urlopen(url, data=post_data) as response:
-        to_str = response.read().decode('utf-8')
-        print('your email is: {}'.format(to_str))
-except Exception as e:
-    pass
+if __name__ == "__main__":
+    url = argv[1]
+    email = argv[2]
+    post_data = urllib.parse.urlencode({'email': email}).encode('utf-8')
+    request = urllib.request.Request(url, data=post_data)
+    try:
+        with urllib.request.urlopen(request) as response:
+            body = response.read()
+            to_str = body.decode('utf-8')
+            print('your email is: {}'.format(to_str))
+    except Exception as e:
+        pass
