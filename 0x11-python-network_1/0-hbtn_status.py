@@ -6,7 +6,9 @@ import urllib.request
 
 
 try:
-    with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as response:
+    with urllib.request.urlopen(
+            'https://alx-intranet.hbtn.io/status'
+            ) as response:
         body = response.read()
         bytes_to_string = body.decode('utf-8')
         print("Body response:")
