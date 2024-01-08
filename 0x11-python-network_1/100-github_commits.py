@@ -5,11 +5,10 @@
 import sys
 import requests
 
-repo = sys.argv[1]
-owner = sys.argv[2]
-
 
 if __name__ == "__main__":
+    repo = sys.argv[1]
+    owner = sys.argv[2]
     url = "https://api.github.com/repos/{}/{}/commits".format(
         owner, repo)
 
