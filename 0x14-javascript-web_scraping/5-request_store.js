@@ -21,11 +21,7 @@ request(url, (error, response, body) => {
     fs.writeFile(filePath, body, { encoding: 'utf-8' }, (err) => {
       if (err) {
         console.error(err);
-      } else {
-        console.log(`Successfully saved the contents of ${url} to ${filePath}`);
       }
     });
-  } else {
-    console.error(`Error: Failed to retrieve content from ${url}.`);
   }
 });
