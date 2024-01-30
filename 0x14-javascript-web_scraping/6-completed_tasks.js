@@ -26,7 +26,5 @@ request.get(`${url}`, (err, res, body) => {
       }
     }
   });
-  for (const userId in completed) {
-    console.log(`'${userId}': ${completed[userId]}`);
-  }
+  console.log(completed);
 });
